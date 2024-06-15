@@ -36,7 +36,6 @@ public class CartUseCase implements CartCreateUseCase {
         Cart commandPortCart = cartCommandPort.createCart(cart);
 
         commandPortCart.publishEvent();
-
     }
 
     @Override
