@@ -1,6 +1,7 @@
 package org.furkan.cartapiapplication;
 
 import org.furkan.cartapiapplication.MessagePublisher;
+import org.furkan.cartapiapplication.cart.message.CartPublishEvent;
 
 import java.util.Queue;
 
@@ -27,4 +28,7 @@ public abstract class AggregateRoot {
     }
 
 
+    protected void unregisterMessage(DomainEvent of) {
+        consumedEventQueue.remove(of);
+    }
 }

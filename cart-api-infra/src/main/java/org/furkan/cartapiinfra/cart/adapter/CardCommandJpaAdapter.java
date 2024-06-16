@@ -6,7 +6,6 @@ import org.furkan.cartapiinfra.cart.jpa.CardMapper;
 import org.furkan.cartapiinfra.cart.jpa.model.CartEntity;
 import org.furkan.cartapiinfra.cart.jpa.repository.CardRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 @Component
 public class CardCommandJpaAdapter implements CartCommandPort {
@@ -22,10 +21,7 @@ public class CardCommandJpaAdapter implements CartCommandPort {
     @Override
     public Cart createCart(Cart cart) {
         CartEntity cartEntity = cardMapper.toEntity(cart);
-        TransactionSynchronizationManager.bindResource(cardRepository, cartEntity);
-
-       // cardRepository.save(cartEntity);
-        return cardMapper.toDomain(cartEntity);
+        return cardMapper.toDomain(cardRepository.save(cartEntity));
     }
 
     @Override

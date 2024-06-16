@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import org.furkan.cartapiapplication.AggregateRoot;
 import org.furkan.cartapiapplication.cart.message.CartCreateCommand;
 import org.furkan.cartapiapplication.cart.message.CartPublishEvent;
+import org.furkan.cartapiapplication.cart.service.CartItemRules;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -49,15 +50,16 @@ public class Cart extends AggregateRoot {
 
 
     public void runValidationRules(CartCreateCommand command) {
-      //  new CartItemRules(command, this).applyRules();
-        registerEvent(CartPublishEvent.of(this));
-    }
+        try {
+            new CartItemRules(command, this).applyRules();
+            this.registerMessage(CartPublishEvent.of(this));
+        } catch (Exception e) {
+            this.unregisterMessage(CartPublishEvent.of(this));
+        }
 
-    public void registerEvent(CartPublishEvent event) {
-        this.registerMessage(event);
     }
-
-    public void publishEvent() {
+    public void publishEvent () {
         this.publish();
     }
+
 }
