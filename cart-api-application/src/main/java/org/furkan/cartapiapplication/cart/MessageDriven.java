@@ -7,4 +7,5 @@ import java.lang.annotation.*;
 @Inherited
 public @interface MessageDriven {
     Class<?> value();
+    String method() default "handle";
 }

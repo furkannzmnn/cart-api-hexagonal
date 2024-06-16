@@ -20,13 +20,13 @@ public class MessagePublisher {
                 .values()
                 .forEach(messageDriven -> {
                     try {
-                        messageDriven.getClass().getMethod("handle", event.getClass()).invoke(messageDriven, event);
+                        MessageDriven annotation = messageDriven.getClass().getAnnotation(MessageDriven.class);
+                        String methodName = annotation.method();
+                        messageDriven.getClass().getMethod(methodName, event.getClass()).invoke(messageDriven, event);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                 });
-
-
     }
 
     public static void publishMessage(DomainEvent event) {
