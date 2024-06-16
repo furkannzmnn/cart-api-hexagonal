@@ -2,7 +2,7 @@ package org.furkan.cartapiapplication.cart.usecase;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.furkan.cartapiapplication.cart.common.model.MessageDriven;
+import org.furkan.cartapiapplication.MessageDriven;
 import org.furkan.cartapiapplication.cart.message.CartPublishEvent;
 import org.furkan.cartapiapplication.cart.port.input.MessageUseCase;
 import org.furkan.cartapiapplication.cart.port.output.EventPublisherPort;

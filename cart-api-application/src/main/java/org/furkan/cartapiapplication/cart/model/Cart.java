@@ -2,7 +2,7 @@ package org.furkan.cartapiapplication.cart.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.furkan.cartapiapplication.cart.common.model.AggregateRoot;
+import org.furkan.cartapiapplication.AggregateRoot;
 import org.furkan.cartapiapplication.cart.message.CartCreateCommand;
 import org.furkan.cartapiapplication.cart.message.CartPublishEvent;
 

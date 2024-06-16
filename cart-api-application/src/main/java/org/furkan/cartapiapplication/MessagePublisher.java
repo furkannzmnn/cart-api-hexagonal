@@ -1,8 +1,5 @@
 package org.furkan.cartapiapplication;
 
-import org.furkan.cartapiapplication.cart.common.model.DomainEvent;
-import org.furkan.cartapiapplication.cart.common.model.MessageDriven;
-import org.furkan.cartapiapplication.cart.common.model.UseCase;
 import org.springframework.context.ApplicationContext;
 
 @UseCase

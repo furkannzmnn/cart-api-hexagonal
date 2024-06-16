@@ -1,6 +1,6 @@
 package org.furkan.cartapiapplication.cart.usecase;
 
-import org.furkan.cartapiapplication.cart.common.model.UseCase;
+import org.furkan.cartapiapplication.UseCase;
 import org.furkan.cartapiapplication.cart.message.CartCreateCommand;
 import org.furkan.cartapiapplication.cart.model.Cart;
 import org.furkan.cartapiapplication.cart.model.Item;

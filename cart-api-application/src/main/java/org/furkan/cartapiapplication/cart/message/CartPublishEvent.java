@@ -1,7 +1,7 @@
 package org.furkan.cartapiapplication.cart.message;
 
 import lombok.Getter;
-import org.furkan.cartapiapplication.cart.common.model.DomainEvent;
+import org.furkan.cartapiapplication.DomainEvent;
 import org.furkan.cartapiapplication.cart.model.Cart;
 
 @Getter

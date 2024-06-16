@@ -1,4 +1,4 @@
-package org.furkan.cartapiapplication.cart.common.model;
+package org.furkan.cartapiapplication;
 
 import org.furkan.cartapiapplication.MessagePublisher;
 
