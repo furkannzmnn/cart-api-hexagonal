@@ -16,18 +16,6 @@ public class MessagePublisher {
     }
 
     public void publish(DomainEvent event) {
-        /*
-        @Configuration
-@ComponentScan(
-        basePackages = "org.furkan.cartapiapplication",
-        includeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = UseCase.class),
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = MessageDriven.class)
-        }
-
-)
-public class DomainConfig {}
-         */
         applicationContext.getBeansWithAnnotation(MessageDriven.class)
                 .values()
                 .forEach(messageDriven -> {
