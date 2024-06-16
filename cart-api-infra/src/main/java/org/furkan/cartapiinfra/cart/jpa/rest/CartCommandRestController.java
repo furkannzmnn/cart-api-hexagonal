@@ -1,4 +1,4 @@
-package org.furkan.cartapiinfra.cart.rest;
+package org.furkan.cartapiinfra.cart.jpa.rest;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

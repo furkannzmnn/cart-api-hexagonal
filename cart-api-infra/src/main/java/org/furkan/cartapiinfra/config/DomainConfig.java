@@ -1,7 +1,7 @@
 package org.furkan.cartapiinfra.config;
 
-import org.furkan.cartapiapplication.UseCase;
-import org.furkan.cartapiapplication.cart.MessageDriven;
+import org.furkan.cartapiapplication.cart.common.model.UseCase;
+import org.furkan.cartapiapplication.cart.common.model.MessageDriven;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;

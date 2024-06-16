@@ -2,10 +2,9 @@ package org.furkan.cartapiapplication.cart.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.furkan.cartapiapplication.cart.AggregateRoot;
+import org.furkan.cartapiapplication.cart.common.model.AggregateRoot;
 import org.furkan.cartapiapplication.cart.message.CartCreateCommand;
 import org.furkan.cartapiapplication.cart.message.CartPublishEvent;
-import org.furkan.cartapiapplication.cart.service.CartItemRules;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,7 +1,8 @@
-package org.furkan.cartapiinfra.cart.jpa;
+package org.furkan.cartapiinfra.cart.adapter;
 
 import org.furkan.cartapiapplication.cart.model.Cart;
 import org.furkan.cartapiapplication.cart.port.output.CartCommandPort;
+import org.furkan.cartapiinfra.cart.jpa.CardMapper;
 import org.furkan.cartapiinfra.cart.jpa.model.CartEntity;
 import org.furkan.cartapiinfra.cart.jpa.repository.CardRepository;
 import org.springframework.stereotype.Component;

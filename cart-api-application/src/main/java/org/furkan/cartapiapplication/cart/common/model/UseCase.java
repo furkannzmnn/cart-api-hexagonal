@@ -1,4 +1,4 @@
-package org.furkan.cartapiapplication;
+package org.furkan.cartapiapplication.cart.common.model;
 
 import java.lang.annotation.*;
 
