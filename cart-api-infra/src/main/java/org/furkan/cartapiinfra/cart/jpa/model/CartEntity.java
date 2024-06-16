@@ -20,7 +20,7 @@ public class CartEntity {
     private Long id;
     private BigDecimal totalPrice;
     private Long userId;
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItemEntity> cartItems = new ArrayList<>();
     @OneToOne
     private PromotionEntity promotion;

@@ -15,7 +15,7 @@ public class CartPublishEvent extends DomainEvent {
     }
 
     public static CartPublishEvent of(Cart cart) {
-        return new CartPublishEvent(cart.getId().toString(), "CartPublishEvent");
+        return new CartPublishEvent(cart.getUserId().toString(), "CartPublishEvent");
     }
 
 }

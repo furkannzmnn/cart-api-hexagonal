@@ -1,15 +1,18 @@
 package org.furkan.cartapiapplication.cart;
 
-import lombok.Getter;
+import org.furkan.cartapiapplication.MessagePublisher;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Queue;
 
 public abstract class AggregateRoot {
 
-    private Queue<DomainEvent> eventQueue;
-    private Queue<DomainEvent> consumedEventQueue;
+    private final Queue<DomainEvent> eventQueue;
+    private final Queue<DomainEvent> consumedEventQueue;
+
+    public AggregateRoot() {
+        this.eventQueue = new java.util.LinkedList<>();
+        this.consumedEventQueue = new java.util.LinkedList<>();
+    }
 
     protected void registerMessage(DomainEvent domainEvent) {
         eventQueue.add(domainEvent);
@@ -18,7 +21,8 @@ public abstract class AggregateRoot {
     protected void publish() {
         while (!eventQueue.isEmpty()) {
             DomainEvent domainEvent = eventQueue.poll();
-
+            MessagePublisher.publishMessage(domainEvent);
+            consumedEventQueue.add(domainEvent);
         }
     }
 

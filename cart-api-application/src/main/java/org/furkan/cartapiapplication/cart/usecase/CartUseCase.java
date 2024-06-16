@@ -9,6 +9,8 @@ import org.furkan.cartapiapplication.cart.port.output.CartCommandPort;
 import org.furkan.cartapiapplication.cart.port.output.CartQueryPort;
 import org.furkan.cartapiapplication.cart.port.output.ItemQueryPort;
 
+import java.util.ArrayList;
+
 @UseCase
 public class CartUseCase implements CartCreateUseCase {
 
@@ -24,7 +26,10 @@ public class CartUseCase implements CartCreateUseCase {
 
     @Override
     public void addItemToCart(CartCreateCommand command) {
-        Cart cart = cartQueryPort.getCartById(command.getCartId());
+        Cart cart = cartQueryPort.getCartById(command.getCartId()).orElse(new Cart());
+        cart.setCartItems(new ArrayList<>());
+        cart.setUserId(command.getUserId());
+        cart.setTotalPrice(command.getPrice());
 
         Item item = itemQueryPort.get(command.getItemId())
                 .orElseThrow(() -> new RuntimeException("Item not found with id: " + command.getItemId()));
@@ -33,9 +38,9 @@ public class CartUseCase implements CartCreateUseCase {
 
         cart.setTotalPrice(cart.getTotalPrice().add(command.getPrice()));
 
-        Cart commandPortCart = cartCommandPort.createCart(cart);
+        cartCommandPort.createCart(cart);
 
-        commandPortCart.publishEvent();
+        cart.publishEvent();
     }
 
     @Override

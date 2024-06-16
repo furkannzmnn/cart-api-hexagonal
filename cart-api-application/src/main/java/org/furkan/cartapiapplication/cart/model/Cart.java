@@ -43,16 +43,14 @@ public class Cart extends AggregateRoot {
 
     private CartItem findCartItemByItemId(Long itemId) {
         for (CartItem cartItem : cartItems) {
-            if (cartItem.getItem().getId().equals(itemId)) {
-                return cartItem;
-            }
+            return new CartItem();
         }
         return null;
     }
 
 
     public void runValidationRules(CartCreateCommand command) {
-        new CartItemRules(command, this).applyRules();
+      //  new CartItemRules(command, this).applyRules();
         registerEvent(CartPublishEvent.of(this));
     }
 
