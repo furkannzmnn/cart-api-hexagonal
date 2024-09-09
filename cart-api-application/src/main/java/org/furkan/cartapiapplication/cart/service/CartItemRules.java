@@ -5,9 +5,12 @@ import org.furkan.cartapiapplication.cart.model.Cart;
 import org.furkan.cartapiapplication.cart.model.CartItem;
 
 public final class CartItemRules {
+
     private static final int MAX_ITEM_COUNT = 30;
     private static final int MAX_UNIQUE_ITEM_COUNT = 10;
+    
     private final CartCreateCommand createItemCommand;
+
     private final Cart cart;
     public CartItemRules(CartCreateCommand createItemCommand, Cart cart) {
         this.createItemCommand = createItemCommand;
@@ -42,4 +45,5 @@ public final class CartItemRules {
             throw new RuntimeException("Total item count must be less than 30, but it is " + totalQuantity);
         }
     }
+    
 }
